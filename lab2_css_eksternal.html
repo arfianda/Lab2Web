@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ini nyoba External</title>
+    <link rel="stylesheet" href="external.css" />
+  </head>
+  <body>
+    <h1>HOHOHEHEHE!</h1>
+    <button>KLIK AKU!</button>
+    <img src="img/dogs.png" alt="Troll" class="troll-img" width="200" />
+    <img src="img/pugh.png" alt="Troll" class="troll-img-big" width="200" />
+
+     <script>
+      // Animasi mantul untuk gambar besar
+      const img = document.getElementById('trollBig');
+      let x = 100, y = 100;
+      let dx = 3, dy = 2;
+      const imgWidth = 320, imgHeight = 320;
+
+      function animate() {
+        x += dx;
+        y += dy;
+
+        // Dapatkan ukuran window
+        const winW = window.innerWidth;
+        const winH = window.innerHeight;
+
+        // Mantul jika kena tepi
+        if (x <= 0 || x + imgWidth >= winW) dx *= -1;
+        if (y <= 0 || y + imgHeight >= winH) dy *= -1;
+
+        img.style.left = x + 'px';
+        img.style.top = y + 'px';
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+  </body>
+</html>
